@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import UserList from "../userlist/userlist";
 
 function Userform(){    //component,controller
     const [userform,setUserform]=useState({//useState-hook-predefined function
         name:'Lucky',
         mobileNumber:"78"
     })
+    const [users,setUsers]=useState([{name:"Indhu",mobileNumber:"89"}]);
     const save=function (){
         console.log(userform.name,userform.mobileNumber);
         axios   //fetch
@@ -21,8 +23,8 @@ function Userform(){    //component,controller
         <div>
             <input value={userform.name} name='name' onChange={updateState}></input>
             <input value={userform.mobileNumber} name='mobileNumber' onChange={updateState} placeholder='Age'></input>
-            
             <button onClick={save}>Save</button>
+            <UserList userProps={users}></UserList>
         </div>
     )
   
