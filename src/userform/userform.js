@@ -3,8 +3,8 @@ import axios from "axios";
 
 function Userform(){    //component,controller
     const [userform,setUserform]=useState({//useState-hook-predefined function
-        name:'Ram',
-        mobileNumber:1
+        name:'Lucky',
+        mobileNumber:"78"
     })
     const save=function (){
         console.log(userform.name,userform.mobileNumber);
@@ -27,11 +27,10 @@ function Userform(){    //component,controller
     )
   
     function updateState(event){
-        setUserform(
-            Object.assign(userform,{
-            [event.target.name]:event.target.value
-        })
-        );
+            const current={...userform  //spread operator
+            ,[event.target.name]:event.target.value};
+        console.log(current);
+        setUserform(current);
     }
 }
 
